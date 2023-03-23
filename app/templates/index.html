@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <title> Kanban board </title>
+</head>
+<body>
+    <!-- Logout button -->
+    <button class="ui pink basic button" style="margin-top: 20px; margin-left: 10px;"><a href="{{ url_for('logging_out') }}">Log out</a></button>
+    <div style="margin-top: 50px;" class="ui container">
+        <h1 class="ui center aligned header"> Kanban board</h1>
+        <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+            <form class="ui form" action="\add" method="POST">
+                 <!-- Form for adding tasks -->
+                <div class="field">
+                    <input type="text" name=task placeholder="Enter a task" style="width: 300px;"><br>
+                </div>
+                <button class="fluid pink ui button" type="submit" style="width: 100px;">Add</button>
+            </form>
+        </div>
+        
+        <div class="ui three column grid" style="margin-top: 20px;">
+            <div class="column">
+                <div class="ui segment">
+                    <h2 class="ui center aligned header">Tasks To Do</h2>
+                    <!-- Loop through new tasks -->
+                    {% for task in new%} 
+                    <div class="ui center aligned segment">
+                        <div class="row" style="align-content: center">
+                        {{ task.title }}
+                        </div>
+                        <!-- Buttons for changing status or deleting task -->
+                        <div class="ui buttons fluid spaced">
+                            <button class="ui pink basic button"><a href="{{ url_for('change_status', id=task.id, status='in_progress') }}">Doing</a></button>
+                            <button class="ui pink basic button"><a href="{{ url_for('change_status', id=task.id, status='finished') }}">Done</a></button>
+                            <button class="ui pink basic button"><a href="{{ url_for('delete', id=task.id) }}">Delete</a></button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui center aligned segment">
+                    <h2 class="ui center aligned header">Tasks In Progress</h2>
+                    {% for task in in_progress %}
+                    <div class="ui segment">
+                        <div class="row">
+                            {{ task.title }}
+                        </div>
+                        <div class="ui buttons fluid spaced">
+                            <button class="ui pink basic button"><a href="{{ url_for('change_status', id=task.id, status='new') }}">To do</a></button>
+                            <button class="ui pink basic button"><a href="{{ url_for('change_status', id=task.id, status='finished') }}">Done</a></button>
+                            <button class="ui pink basic button"><a href="{{ url_for('delete', id=task.id) }}">Delete</a></button>
+                        </div>  
+                    </div>
+                    {% endfor %} 
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui segment">
+                    <h2 class="ui center aligned header">Tasks Completed</h2>
+                    {% for task in finished %}
+                    <div class="ui center aligned segment">
+                        <div class="row">
+                            {{ task.title }}
+                        </div>
+                        <div class="ui buttons">
+                    {% endfor %}
+                           

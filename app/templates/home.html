@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+<!-- This code extends the base template layout.html -->
+
+{% block body %}
+<!-- This block of code is the content section of the web page -->
+<div style="margin-top: 50px;" class="ui container">
+  <h2 class="ui center aligned header" > Kanban Board </h2>
+
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+     <!-- If there is an error, display it to the user -->
+  <div class="ui center aligned grid">
+    <div class="eight wide column">
+      <a class="ui pink button" href="/registration" method="GET">Sign up</a>
+      <!-- Link button to registration page -->
+    </div>
+    <div class="eight wide column">
+      <a class="ui pink button" href="/login" method="GET">Log in</a>
+      <!-- Link button to login page -->
+    </div>
+  </div>
+  <div class="ui center aligned container" style="padding: 20px;">
+    <p style="text-align: center;">This is a web application created with Flask that provides the functionality of a 3-step Kanban board.</p>
+    <p style="text-align: center;">You can login or sign up. You can add, delete, or move tasks. Tasks can be of three types: 1) to do 2) doing 3) done.</p>
+      <p style="text-align: center;">This management tool can help users remain productive and keep track of their tasks.</p>
+      <!-- This generates text explaining what the Kanban Board app does. -->
+  </div>
+</div>
+{% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+    <!-- Iterate through flashed messages and generate HTML code for each -->
+{% endfor %} 
+</div>
+{% endblock %}

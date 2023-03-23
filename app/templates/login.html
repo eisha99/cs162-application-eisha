@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+<!-- This code extends the base template layout.html -->
+{% block body %}
+<!-- This block of code is the content section of the web page -->
+<div style="margin-top: 50px;" class="ui container">
+  <h2 class="ui center aligned header" > Login | Kanban Board</h2>
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  <form class="ui form" action="/login" method="POST">
+    <div class="field">
+      <label>Username </label>
+      <input type=text name=username placeholder="Enter username">
+      <!-- The text box for the username input is less wide -->
+    </div>
+    <div class="field">
+      <label>Password </label>
+      <input type=password name=password placeholder="Enter password">
+      <!-- The text box for the password input is less wide -->
+    </div>
+    
+    <div style="margin-top: 20px; text-align: center;">
+      <button class="ui pink button" value=Login>Log in</button>
+      <!-- The Login button is centered -->
+    </div>
+  </form>
+{% for message in get_flashed_messages() %}
+            <div class=flash>{{ message }}</div>
+        {% endfor %} 
+</div>
+{% endblock %}

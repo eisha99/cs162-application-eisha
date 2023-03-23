@@ -1,0 +1,20 @@
+<!doctype html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<!-- import the Semantic UI CSS library. -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class=page>
+  <div class=metanav>
+  <!-- The div with class "page" contains the main content of the webpage.
+  The div with class "metanav" contains a login/logout link depending on whether the user is currently logged in or not. -->
+  {% if not session.logged_in %}
+  <!-- The for loop iterates over the flashed messages, which are messages that are temporarily stored and displayed to the user for feedback or notifications. -->
+    <a href="{{ url_for('login') }}">log in</a>
+  {% else %}
+    <a href="{{ url_for('logout') }}">log out</a>
+  {% endif %}
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+</div>
