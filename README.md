@@ -9,7 +9,6 @@ This is web application created with Flask that provides the functionality of a 
 
 Github Repo for this Project: https://github.com/eisha99/cs162-application-eisha
 Loom Video Recording:
-Deployed app: 
 
 ## File Structure
 
