@@ -66,6 +66,10 @@
                         <div class="row">
                             {{ task.title }}
                         </div>
-                        <div class="ui buttons">
+                        <div class="ui buttons fluid spaced">
+                            <button class="ui pink basic button"><a href="{{ url_for('status_update', id=task.id, status='new') }}">To do</a></button>
+                            <button class="ui pink basic button"><a href="{{ url_for('status_update', id=task.id, status='finished') }}">Done</a></button>
+                            <button class="ui pink basic button"><a href="{{ url_for('delete', id=task.id) }}">Delete</a></button>
+                        </div>  
                     {% endfor %}
                            

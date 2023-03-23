@@ -8,7 +8,7 @@ This is web application created with Flask that provides the functionality of a 
 ## Links
 
 Github Repo for this Project: https://github.com/eisha99/cs162-application-eisha
-Loom Video Recording:
+Loom Video Recording: https://www.loom.com/share/13ecf1cc242744bea11948d52ef9fe1b
 
 ## File Structure
 

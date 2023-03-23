@@ -115,7 +115,7 @@ def add():
     db.session.commit()
     return redirect(url_for('index')) #once task is added, the kanban (updated) is shown
 
-#route for removing taska
+#route for removing tasks
 @app.route('/delete/task/<id>', methods=['GET', 'POST', 'DELETE'])
 def delete(id):
     """ This is for deleting existing tasks """
