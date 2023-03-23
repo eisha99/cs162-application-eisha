@@ -5,6 +5,12 @@
 
 This is web application created with Flask that provides the functionality of a 3-step Kanban board. Users can either log in or sign up. Once logged in, users may log out. Users can add, delete or move tasks. Tasks can be of three types: 1) to do 2) doing 3) done. This management tool can help users remain productive and keep track of their tasks.
 
+## Links
+
+Github Repo for this Project: https://github.com/eisha99/cs162-application-eisha
+Loom Video Recording:
+Deployed app: 
+
 ## File Structure
 
 In the root directory:
