@@ -7,7 +7,7 @@ This is web application created with Flask that provides the functionality of a 
 
 ## File Structure
 
-In the root director:
+In the root directory:
 
 - .env includes env variables that need to be set
 - `app.py` defines the main Flask application instance. It includes the application routes, configurations, and other setup code.
